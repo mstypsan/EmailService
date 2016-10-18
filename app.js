@@ -7,7 +7,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var validator = require('express-validator');
 
-var emailSender = require('./controllers/emailSender');
+var emailSenderApi = require('./controllers/emailSenderApi');
 
 dotenv.config();
 
@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 app.set('port', process.env.PORT || 3000);
 app.use(validator());
 
-app.post('/email-service/email/send', emailSender.sendEmail);
+app.post('/email-service/email/send', emailSenderApi.sendEmail);
 
 app.server = app.listen(app.settings.port, function () {
   winston.info('listening on port %d in %s mode', app.settings.port, app.settings.env);

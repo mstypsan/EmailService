@@ -1,11 +1,9 @@
 'use strict';
 var _ = require('lodash');
-var async = require('async');
 var winston = require('winston');
 var emailService = require('../libs/emailService');
 
 function sendEmail(req, res) {
-
   req.checkBody('subject', 'Please enter the subject of the e-mail').notEmpty();
   req.checkBody('content', 'Please enter the content of the e-mail').notEmpty();
   req.checkBody('recipient', 'Please enter a valid recipient e-mail').isEmail();

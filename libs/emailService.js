@@ -4,7 +4,7 @@ var async = require('async');
 var EmailMessage = require('./emailMessage');
 var sendgridService = require('./sendgridService');
 var mailgunService = require('./mailgunService');
-var emailProviders = [mailgunService, sendgridService];
+var emailProviders = [sendgridService, mailgunService];
 
 var sendEmail = function(recipient, subject, content){
   var sender = process.env.SENDER_EMAIL;
